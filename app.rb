@@ -35,6 +35,27 @@ post '/posts' do
   redirect '/'
 end
 
+get '/posts/:id/edit' do
+	@post = Post.find(params[:id].to_i)
+	@title = @post.title
+  @body = @post.body
+  erb :edit
+
+end
+
+post '/posts/:id/edit' do
+	title = params[:title]
+  body = params[:body]
+  user = User.find_by_username(session[:username])
+  post = Post.find(params[:id])    #(:title => title, :body => body)
+  post.title = title
+	post.body = body
+  user.posts << post
+  post.save
+  redirect '/'
+
+end
+
 get '/users/sign_up' do 
 	erb :sign_up
 end
