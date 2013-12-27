@@ -25,6 +25,7 @@
 		<div class= "body block_overflow">
 			<%= post.body %>
 		</div>
+		<a href="/posts/<%=post.id%>/edit">EDIT</a>
 		<a href="/posts/<%=post.id%>/like">LIKE</a>
 		<div class="comments">
 			<% post.comments.each do |comment| %> 
