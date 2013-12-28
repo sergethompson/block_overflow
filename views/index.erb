@@ -27,6 +27,7 @@
 		</div>
 		<a href="/posts/<%=post.id%>/edit">EDIT</a>
 		<a href="/posts/<%=post.id%>/like">LIKE</a>
+		<a href="/posts/<%=post.id%>/delete">DELETE</a>
 		<div class="comments">
 			<% post.comments.each do |comment| %> 
 				<p><%=comment.user.username%>: <%= comment.body %></p>

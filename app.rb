@@ -53,9 +53,15 @@ post '/posts/:id/edit' do
   user.posts << post
   post.save
   redirect '/'
-
 end
-
+####################
+get '/posts/:id/delete' do 
+	id = params[:id].to_i
+	post = Post.find(id)
+	post.destroy
+	redirect '/'
+end
+####################
 get '/users/sign_up' do 
 	erb :sign_up
 end
