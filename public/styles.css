@@ -1,17 +1,29 @@
+body {
+	background-image:url('beautiful_mountain_lakes-wallpaper-1280x1024.jpg');}
+
 .container{
-	width: 600px;
+	width: 900px;
 	margin: 0 auto;
 }
 
 .post {
 	background-color: lightblue;
+	width: 290px;
 	border: 5px solid black;
 	border-radius: 1em;
-	margin-top: 1em;
+	margin: .2em;
 	padding: 1em;
 	-moz-box-shadow: -1px 3px 12px #000000;
 	-webkit-box-shadow: -1px 3px 12px #000000;
 	box-shadow: -1px 3px 12px #000000;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+	display: inline-block;
 }
 
 .post .body {

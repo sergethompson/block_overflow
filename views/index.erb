@@ -8,42 +8,46 @@
 
 <% if @user %>
 <form action="/posts" method="post">
-	<input type="text" name="title">
-	<textarea name="body" cols="70" rows="10"></textarea>
+	<input type="text" name="title" placeholder="Title">
+	<textarea name="body" placeholder="body" cols="70" rows="10"></textarea>
 	<input type="submit">
 </form>
 <hr>
 <% end %>
-
-<% @posts.each do |post| %> 
-	<div class="post">
-		<h1>
-			<%= post.title %>
-		</h1>
-			<p class="italics" >User: <%= post.user.username %></p>
-			<p class="italics" >Created at: <%= post.created_at.asctime %></p>
-		<div class= "body block_overflow">
-			<%= post.body %>
-		</div>
-		<a href="/posts/<%=post.id%>/edit">EDIT</a>
-		<a href="/posts/<%=post.id%>/like">LIKE</a>
-		<a href="/posts/<%=post.id%>/delete">DELETE</a>
-		<div class="comments">
-			<% post.comments.each do |comment| %> 
-				<p><%=comment.user.username%>: <%= comment.body %></p>
-			<% end %>
-		</div>
+<ul>
+	<% @posts.each do |post| %> 
+		<li>
+		<div class="post">
+			<h1>
+				<%= post.title %>
+			</h1>
+				<p class="italics" >User: <%= post.user.username %></p>
+				<p class="italics" >Created at: <%= post.created_at.asctime %></p>
+			<div class= "body block_overflow">
+				<%= post.body %>
+			</div>
+			<a href="/posts/<%=post.id%>/edit">EDIT</a>
+			<a href="/posts/<%=post.id%>/like">LIKE</a>
+			<a href="/posts/<%=post.id%>/delete">DELETE</a>
+			<div class="comments">
+				<% post.comments.each do |comment| %> 
+					<p><%=comment.user.username%>: <%= comment.body %></p>
+				<% end %>
+			</div>
+		
 
 		<% if @user %>
 			<div class= "new_comment">
 				<form action="/posts/<%=post.id%>/comments" method="post">
-					<textarea name="comment_text" id="" cols="79" rows="2"></textarea>
+					<textarea name="comment_text" id="" cols="39" rows="3"></textarea>
 					<input type="submit">
 				</form>
 			</div>
 		<% end %>
 	</div>
 <% end %>
+</li>
+</ul>
 
 
 
