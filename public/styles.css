@@ -1,5 +1,6 @@
 body {
-	background-image:url('beautiful_mountain_lakes-wallpaper-1280x1024.jpg');}
+	background-image:url('beautiful_mountain_lakes-wallpaper-1280x1024.jpg');
+}
 
 .container{
 	width: 900px;
@@ -8,7 +9,7 @@ body {
 
 .post {
 	background-color: lightblue;
-	width: 290px;
+	width: 380px;
 	border: 5px solid black;
 	border-radius: 1em;
 	margin: .2em;
@@ -29,8 +30,9 @@ li {
 .post .body {
 	background-color: lightgrey;
 	border-radius: 1em;
-	boder: 1px solid magenta;
+	border: 1px solid magenta;
 }
+
 
 .post .comments {
 	background-color: lightpink;

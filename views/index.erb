@@ -8,7 +8,12 @@
 
 <% if @user %>
 <form action="/posts" method="post">
-	<input type="text" name="title" placeholder="Title">
+	<input type="text" name="title" placeholder="Title"><br>
+	<select name="language">
+	<option value="text">TEXT</option>
+  <option value="html">HTML</option>
+  <option value="ruby">RUBY</option>
+</select><br>
 	<textarea name="body" placeholder="body" cols="70" rows="10"></textarea>
 	<input type="submit">
 </form>
@@ -26,9 +31,11 @@
 			<div class= "body block_overflow">
 				<%= post.body %>
 			</div>
+			<% if @user %>
 			<a href="/posts/<%=post.id%>/edit">EDIT</a>
 			<a href="/posts/<%=post.id%>/like">LIKE</a>
 			<a href="/posts/<%=post.id%>/delete">DELETE</a>
+			<% end %>
 			<div class="comments">
 				<% post.comments.each do |comment| %> 
 					<p><%=comment.user.username%>: <%= comment.body %></p>

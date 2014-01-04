@@ -27,17 +27,9 @@ end
 
 post '/posts' do
   title = params[:title]
-  @body = params[:body]
-  @language = params[:language].to_s
-  case @language
-  	when "ruby" 
-  		@body = CodeRay.scan("#{@body}", :ruby).div(:line_numbers => :table)
-  	when "html" 
-  		@body = CodeRay.scan("#{@body}", :html).div(:line_numbers => :table)
-  	else
-  end
+  body = params[:body]
   user = User.find_by_username(session[:username])
-  post = Post.new(:title => title, :body => @body)
+  post = Post.new(:title => title, :body => body)
   user.posts << post
   post.save
   redirect '/'
@@ -129,22 +121,5 @@ get '/posts/:id/like' do
 	redirect '/'
 
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
